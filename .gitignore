@@ -5,6 +5,10 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
+Logs/
+.vs/
+Packages/
+UserSettings/
 Assets/AssetStoreTools*
 
 # ===================================== #
@@ -20,6 +24,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
+*.vsconfig
 
 # ============ #
 # OS generated #
