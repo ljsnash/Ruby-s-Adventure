@@ -62,8 +62,16 @@ public class Timer : MonoBehaviour
     {
         bActive = false;
         bFinished = false;
-        fWaitTime = 999999.9f;
-        fCurrentTime = 999999.9f;
+        fCurrentTime = fWaitTime;
     }
 
+    public void ResetTimer()
+    {
+        if (bActive == false)
+        {
+            Debug.Log($"{this}ResetÊ§°Ü£º¶¨Ê±Æ÷Î´¼¤»î");
+            return;
+        }
+        fCurrentTime = fWaitTime;
+    }
 }

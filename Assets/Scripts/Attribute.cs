@@ -7,7 +7,7 @@ public class Attribute : MonoBehaviour
     public string Name;
     public int Health_Min = 0;
     public int Health_Max = 100;
-    private int Health_Current;
+    private int Health_Current = 0;
     private bool bDead;
     public int Level;
     // Start is called before the first frame update
@@ -21,12 +21,14 @@ public class Attribute : MonoBehaviour
     {
  
     }
-    public void SetCurrentHealth(int Health)
+    private void SetCurrentHealth(int Health)
     {
         Health_Current = Health;
         Debug.Log($"{Name}当前生命值:{Health_Current}");
-        UIHealthBar.Instance.SetWidth(GetHealthPercent());
-    }
+        //UIHealthBar.Instance.SetWidth(GetHealthPercent());
+        //UIHealthBar.Instance.GetOriginzeWidth();
+        //Debug.Log($"GetOriginzeWidth():{UIHealthBar.Instance.GetOriginzeWidth()}");
+    } 
 
     public int GetCurrentHealth()
     {

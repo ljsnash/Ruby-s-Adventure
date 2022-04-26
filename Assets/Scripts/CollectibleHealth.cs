@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollectibleHealth : MonoBehaviour
 {
     public int Health_Revert = 100;
+    public AudioClip collectionedClip;
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log($"{other}Åöµ½ÁË£¡");
@@ -15,6 +16,7 @@ public class CollectibleHealth : MonoBehaviour
         }
         if (Hero_boli.ChangeHealth(Health_Revert) == true)
         {
+            Hero_boli.PlaySound(collectionedClip);
             Destroy(gameObject);
         }
     }

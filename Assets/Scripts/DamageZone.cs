@@ -13,6 +13,10 @@ public class DamageZone : MonoBehaviour
     {
         Debug.Log($"{other}碰到了DamageZone！");
         Hero_boli = other.GetComponent<HeroAttribute>();
+        if (Hero_boli == null)
+        {
+            return;
+        }
         if (Hero_boli.ChangeHealth(Health_Damage) == true)
         {
             Debug.Log($"{other}受到了{Health_Damage}点伤害！");
@@ -24,10 +28,15 @@ public class DamageZone : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+        Hero_boli = other.GetComponent<HeroAttribute>();
+        if (Hero_boli == null)
+        {
+            return;
+        }
         if (timer.OnTimer() == true)
         {
             Debug.Log($"{other}站在DamageZone上！");
-            Hero_boli = other.GetComponent<HeroAttribute>();
+            
             if (Hero_boli.ChangeHealth(Health_Damage) == true)
             {
                 Debug.Log($"{other}受到了{Health_Damage}点伤害！");

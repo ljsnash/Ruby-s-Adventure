@@ -5,6 +5,7 @@ using UnityEngine;
 public class CogBullet : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
+    public AudioClip collectionedClip;
     //public string Name = "bullet";
     // Start is called before the first frame update
     void Awake()
@@ -27,5 +28,17 @@ public class CogBullet : MonoBehaviour
             Pida.SetRepaired(true);
         }
         Destroy(gameObject);
+    }
+
+    public void PlayThrowSound(HeroAttribute Hero_boli)
+    {
+        if (Hero_boli == null)
+        {
+            return;
+        }
+        else
+        {
+            Hero_boli.PlaySound(collectionedClip);
+        }
     }
 }

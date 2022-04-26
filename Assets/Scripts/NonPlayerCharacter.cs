@@ -72,6 +72,7 @@ public class NonPlayerCharacter : MonoBehaviour
             RevertPage();
         }
         _tmTxtBox.pageToDisplay = Page;
+        timer.ResetTimer();
     }
 
     private void RevertPage()

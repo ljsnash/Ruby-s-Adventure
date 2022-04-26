@@ -29,5 +29,6 @@ public class AttackControl : MonoBehaviour
         MoveController moveController = gameObject.GetComponent<MoveController>();
         Vector2 LookDirection = moveController.GetLookDirection();
         cogBullet.Launch(LookDirection, BulletForce);
+        cogBullet.PlayThrowSound(Hero_boli);
     }
 }

@@ -5,11 +5,13 @@ using UnityEngine;
 public class HeroAttribute : Attribute
 {
     private bool IsTalk = false;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        SetCurrentHealth(Health_Max - 200);
-        GetCurrentHealth();
+        ChangeHealth(Health_Max - 200);
+        //GetCurrentHealth();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,5 +28,10 @@ public class HeroAttribute : Attribute
     public bool GetTalkState()
     {
         return IsTalk;
+    }
+
+    public void PlaySound(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
     }
 }
