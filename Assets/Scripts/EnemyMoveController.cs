@@ -74,6 +74,7 @@ public class EnemyMoveController : MonoBehaviour
             //Destroy(smokeEffect);
             Debug.Log($"smokeEffect = {smokeEffect.name}");
             smokeEffect.Stop();
+            GetComponent<AudioSource>().Stop();
         }
     }
 
