@@ -10,8 +10,15 @@ public class EnemyMoveController : MonoBehaviour
     public float Invincible = 2.5f;
     private bool bRight = true;
     private bool bRepaired = false;
+    
     Timer timer;
     public ParticleSystem smokeEffect;
+    [Range(0,10000)]
+    public int Damage;
+    private EnemyMoveController()
+    {
+        GameMath.SetNumberMin0(Damage);
+    }
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -53,7 +60,7 @@ public class EnemyMoveController : MonoBehaviour
         HeroAttribute Hero_boli = other.gameObject.GetComponent<HeroAttribute>();
         if (Hero_boli != null)
         {
-            Hero_boli.ChangeHealth(-50);
+            Hero_boli.GetDamage(Damage);
             Debug.Log($"{Hero_boli.Name}±»Åöµ½ÁË£¡");
         }
     }

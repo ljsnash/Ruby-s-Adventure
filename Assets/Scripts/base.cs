@@ -36,7 +36,7 @@ public class Timer : MonoBehaviour
                     bFinished = true;
                 }
             }
-           
+
         }
     }
 
@@ -73,5 +73,19 @@ public class Timer : MonoBehaviour
             return;
         }
         fCurrentTime = fWaitTime;
+    }
+}
+public class GameMath: MonoBehaviour
+{
+    static public int SetNumberMin0(int num)
+    {
+        if (num < 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return num;
+        }
     }
 }

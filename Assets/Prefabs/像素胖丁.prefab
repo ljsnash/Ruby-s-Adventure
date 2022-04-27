@@ -168,6 +168,7 @@ MonoBehaviour:
   Health_Min: 0
   Health_Max: 500
   Level: 5
+  audioHit: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
 --- !u!95 &1279730428702314302
 Animator:
   serializedVersion: 4

@@ -5,10 +5,15 @@ using UnityEngine;
 public class DamageZone : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int Health_Damage = -100;
     public float Invincible = 3.0f;
     Timer timer;
     HeroAttribute Hero_boli;
+    [Range(0, 10000)]
+    public int Damage;
+    private DamageZone()
+    {
+        GameMath.SetNumberMin0(Damage);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log($"{other}碰到了DamageZone！");
@@ -17,9 +22,9 @@ public class DamageZone : MonoBehaviour
         {
             return;
         }
-        if (Hero_boli.ChangeHealth(Health_Damage) == true)
+        if (Hero_boli.GetDamage(Damage) == true)
         {
-            Debug.Log($"{other}受到了{Health_Damage}点伤害！");
+            Debug.Log($"{other}受到了{Damage}点伤害！");
         }
 
         timer = gameObject.AddComponent<Timer>();
@@ -37,9 +42,9 @@ public class DamageZone : MonoBehaviour
         {
             Debug.Log($"{other}站在DamageZone上！");
             
-            if (Hero_boli.ChangeHealth(Health_Damage) == true)
+            if (Hero_boli.GetDamage(Damage) == true)
             {
-                Debug.Log($"{other}受到了{Health_Damage}点伤害！");
+                Debug.Log($"{other}受到了{Damage}点伤害！");
             }
         }        
     }
@@ -51,4 +56,5 @@ public class DamageZone : MonoBehaviour
             Destroy(timer);
         }
     }
+
 }

@@ -6,6 +6,7 @@ public class HeroAttribute : Attribute
 {
     private bool IsTalk = false;
     AudioSource audioSource;
+    public AudioClip audioHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +34,20 @@ public class HeroAttribute : Attribute
     public void PlaySound(AudioClip audioClip)
     {
         audioSource.PlayOneShot(audioClip);
+    }
+
+    public void PlayHitSound()
+    {
+        audioSource.PlayOneShot(audioHit);
+    }
+
+    public bool GetDamage(int Damage)
+    {
+        bool bDamage = ChangeHealth(-Damage);
+        if(bDamage == true)
+        {
+            PlayHitSound();
+        }
+        return bDamage;
     }
 }
